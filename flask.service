@@ -1,0 +1,9 @@
+[Unit]
+Description=Flask APP
+After=network.target
+
+[Service]
+User=ec2-user
+WorkingDirectory=/home/ec2-user/flask-example
+ExecStart=/home/ec2-user/.local/bin/gunicorn -b 0.0.0.0:5000 main:app
+Restart=always
